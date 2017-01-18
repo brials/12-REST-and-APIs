@@ -6,8 +6,15 @@
   repos.all = [];
 
   repos.requestRepos = function(callback) {
-    // TODO: How would you like to fetch your repos? Don't forget to call the callback.
-
+    // Done: How would you like to fetch your repos? Don't forget to call the callback.
+    $.ajax({
+      url: 'https://api.github.com/users/brials/repos',
+      method: 'GET',
+      headers: {
+        Authorization: githubToken //eslint-disable-line
+      }
+    }).then(data => data.forEach(repo => repos.all.push(repo)));
+    callback();
   };
 
   // REVIEW: Model method that filters the full collection for repos with a particular attribute.
