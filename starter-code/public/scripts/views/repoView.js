@@ -13,11 +13,11 @@
 
   // Done: Remember that new Handlebars template? Let's compile it!
   // Save the result in this `render` variable.
-  var render = Handlebars.compile($('#repo-template').text()) //eslint-disable-line
 
   repoView.index = function() {
     ui();
 
+    var render = Handlebars.compile($('#repo-template').text()) //eslint-disable-line
     // The jQuery `append` method lets us append an entire array of HTML elements at once:
     $('#about ul').append(
       repos.with('name').map(render) //eslint-disable-line
